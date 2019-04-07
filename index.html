@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="keywords" content="程序员爱情表白, 时间轴, 爱情时间轴" />
+<meta name="description" content="史上最震撼的情人节神器，瞬间感动她（他），无论是否为程序员，快来制作属于自己的爱情时间轴吧，！！！@颜海镜 <http://yanhaijing.com> " />
+<title>loveTimeline</title>
+<link href="css/default.css" rel="stylesheet" />
+<link href="css/history.css" rel="stylesheet" />
+<!-- 添加百度统计 -->
+<script src="//yanhaijing.com/assets/plugin/tongji/baidu.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden_dev.js"></script>
+<script type="text/javascript" src="js/functions_dev.js"></script>
+</head>
+<body>
+<!-- 代码 开始 -->
+<div id="mainDiv">
+		<div id="content" style="width: 1110px; height: 625px; margin-top: 57px; margin-left: 165px;">
+			<div id="loveHeart">
+				<canvas id="garden" width="670" height="625"></canvas>
+				<div id="words">
+					<div id="messages">
+						We love so long
+						<div id="elapseClock"><span class="digit">0</span> 年 <span class="digit">0</span> 月 <span class="digit">0</span> 天 <span class="digit">0</span> 时 <span class="digit">0</span> 分 <span class="digit">0</span> 秒</div>
+					</div>
+					<div id="loveu">
+						Love in accumulation, any time!<br> 
+						<div class="signature">——<arget="_blank" style="color:crimson">狗娃 & 狗子</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var displayMode = 1;
+		var together = new Date();
+		together.setFullYear(2019, 3, 6);
+		together.setHours(0);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		$("#loveHeart").click(function(){
+			displayMode *= -1;
+			timeElapse(together, displayMode);
+		});
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				adjustWordsPosition();
+				startHeartAnimation();
+			}, 100);
+
+			timeElapse(together, displayMode);
+			setInterval(function () {
+				timeElapse(together, displayMode);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+<div class="head-warp">
+  <div class="head">
+        <div class="nav-box">
+          <ul>
+              <li class="cur" style="text-align:center; font-size:62px; font-family:'微软雅黑', '宋体';color:#fff">Love Memory</li>
+          </ul>
+        </div>
+  </div>
+</div>
+<div class="main">
+	<div class="history">
+	    <div class="history-date">
+	      	<ul>
+				<h2 class="first"><a href="#nogo">2018年</a></h2>
+				<li class="green">
+					<h3>02.15</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								第一次对话
+							</h4>	
+							<div class="wrap">	
+								<img src="photo/WechatIMG230.jpeg">
+								<p style="margin:30px 0 10px 0;font-size: 20px">那晚大年三十，狗子鼓起勇气，向狗娃说声新年快乐～狗娃回复的时候，狗子可激动了哈哈哈哈！！！
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>					
+			</ul>
+			</div><!-- .history-date -->
+			<div class="history-date">
+				<ul>
+			<h2 class="first"><a href="#nogo">2018年</a></h2>
+			<li class="green">
+				<h3>06.03</h3>
+				<dl>
+					<dt>
+						<div class="feed_arrow">
+						</div>		
+						<h4>
+							要到微信号
+						</h4>	
+						<div class="wrap">	
+							<img src="photo/WechatIMG231.jpeg">
+							<p style="margin:30px 0 10px 0;font-size: 20px">在微博上聊了一段时间，聊的很开心，emmm...通过游戏狗子加到了狗娃微信，哈哈哈，也是凭自己实力了。从那之后，狗子每天等狗娃下班，每天都会聊会儿，哪怕就一句晚安～
+							</p>
+						</div>									 
+					</dt>
+				</dl>
+			</li>					
+		</ul>
+		</div><!-- .history-date -->
+		<div class="history-date">
+			<ul>
+		<h2 class="first"><a href="#nogo">2018年</a></h2>
+		<li class="green">
+			<h3>11.04</h3>
+			<dl>
+				<dt>
+					<div class="feed_arrow">
+					</div>		
+					<h4>
+						第一次见面
+					</h4>	
+					<div class="wrap">	
+						<img src="photo/WechatIMG233.jpeg">
+						<p style="margin:30px 0 10px 0;font-size: 20px">狗子和狗娃要一起过生日了，约好见一面吃个饭，那顿饭局没有很尴尬，狗子和狗娃还是像平时微信上一样聊的很开心，可惜那天没有合影留念，就放张聊天记录吧哈哈。
+						</p>
+					</div>									 
+				</dt>
+			</dl>
+		</li>					
+	</ul>
+	</div><!-- .history-date -->
+<div class="history-date">
+	<ul>
+<h2 class="first"><a href="#nogo">2019年</a></h2>
+<li class="green">
+	<h3>02.06</h3>
+	<dl>
+		<dt>
+			<div class="feed_arrow">
+			</div>		
+			<h4>
+				在一起、在一起
+			</h4>	
+			<div class="wrap">	
+				<img src="photo/WechatIMG234.jpeg">
+				<p style="margin:30px 0 10px 0;font-size: 20px">正月里，狗子和狗娃开始了进一步的发展，每天语音都会聊到很晚。
+				</p>
+			</div>									 
+		</dt>
+	</dl>
+</li>					
+</ul>
+</div><!-- .history-date -->
+<div class="history-date">
+	<ul>
+<h2 class="first"><a href="#nogo">2019年</a></h2>
+<li class="green">
+	<h3>02.16</h3>
+	<dl>
+		<dt>
+			<div class="feed_arrow">
+			</div>		
+			<h4>
+				第二次见面
+			</h4>	
+			<div class="wrap">	
+				<img src="photo/WechatIMG229.jpeg">
+				<p style="margin:30px 0 10px 0;font-size: 20px">过完年的第一次见面，狗子和狗娃一起看了流浪地球（狗娃哭了不下三次，狗子已提前备好纸巾），唱唱歌，吃吃饭。第二次的见面多了种奇妙的感觉，hiahiahia！
+				</p>
+			</div>									 
+		</dt>
+	</dl>
+</li>					
+</ul>
+</div><!-- .history-date -->
+<div class="history-date">
+	<ul>
+<h2 class="first"><a href="#nogo">2019年</a></h2>
+<li class="green">
+	<h3>03.09</h3>
+	<dl>
+		<dt>
+			<div class="feed_arrow">
+			</div>		
+			<h4>
+				第三次见面
+			</h4>	
+			<div class="wrap">	
+				<img src="photo/WechatIMG235.jpeg">
+				<p style="margin:30px 0 10px 0;font-size: 20px">第三次见面，狗子和狗娃看了绿皮书，吃了烤肉（狗娃说了不下三遍很好吃），逛了很久的湖滨银泰才回家。
+				</p>
+			</div>									 
+		</dt>
+	</dl>
+</li>					
+</ul>
+</div><!-- .history-date -->
+<div class="history-date">
+	<ul>
+<h2 class="first"><a href="#nogo">2019年</a></h2>
+<li class="green">
+	<h3>03.28</h3>
+	<dl>
+		<dt>
+			<div class="feed_arrow">
+			</div>		
+			<h4>
+				随记
+			</h4>	
+			<div class="wrap">	
+				<img src="photo/WechatIMG228.jpeg">
+				<img src="photo/WechatIMG226.jpeg">
+				<p style="margin:30px 0 10px 0;font-size: 20px">狗子和狗娃的小时候噢～小时候就配一脸啊哈哈哈哈哈哈哈哈哈哈嗝
+				</p>
+			</div>									 
+		</dt>
+	</dl>
+</li>					
+</ul>
+</div><!-- .history-date -->
+<div class="history-date">
+	<ul>
+<h2 class="first"><a href="#nogo">2019年</a></h2>
+<li class="green">
+	<h3>04.06</h3>
+	<dl>
+		<dt>
+			<div class="feed_arrow">
+			</div>		
+			<h4>
+				修成正果
+			</h4>	
+			<div class="wrap">	
+				<img src="photo/WechatIMG224.jpeg">
+				<img src="photo/WechatIMG225.jpeg">
+				<img src="photo/WechatIMG223.jpeg">
+				<img src="photo/WechatIMG236.jpeg">
+				<p style="margin:30px 0 10px 0;font-size: 20px">这一天天气贼好，狗子和狗娃相约来到了宋城，逛吃了一下午，看了很多场演出，狗子还送出了定情手链，很适合狗娃。到了七点半才离开，看了场电影《调音师》（狗娃说了不下三次好看）。到了十一点多，狗子和狗娃才分开各自回家，也就是这天起，恋爱记开始记了......
+				</p>
+			</div>									 
+		</dt>
+	</dl>
+</li>					
+</ul>
+</div><!-- .history-date -->
+<div class="history-date">
+	<ul>
+<h2 class="first"><a href="#nogo">未来</a></h2>
+<li class="green">
+	<h3>某时某刻</h3>
+	<dl>
+		<dt>
+			<div class="feed_arrow">
+			</div>		
+			<h4>
+				未完待续
+			</h4>	
+			<div class="wrap">	
+				<p style="margin:30px 0 10px 0;font-size: 20px">狗娃的过去狗子来不及参与，但狗娃的未来狗子会奉陪到底！
+				</p>
+			</div>									 
+		</dt>
+	</dl>
+</li>					
+</ul>
+</div><!-- .history-date -->
+    </div>		
+</div>
+
+<script src="js/jquery.js"></script> 
+<script src="js/main.js"></script>
+<!-- 代码 结束 -->
+<div id="copyright">
+	&copy; 2019 <target="_blank">狗子</a>
+</div>
+<div style="text-align:center;margin:20px 0 60px 0;line-height:28px">
+</div>          
+</body>
+</html>
